@@ -1,8 +1,14 @@
-export async function GET() {
+export async function GET(request: Request) {
+  const url = new URL(request.url)
+  const keyword = url.searchParams.get('keyword')
+  let apiUrl = 'https://sysbird.jp/toriko/api/?apikey=guest&format=json'
+
+  if (keyword) {
+    apiUrl += `&keyword=${encodeURIComponent(keyword)}`
+  }
+
   try {
-    const response = await fetch(
-      'https://sysbird.jp/toriko/api/?apikey=guest&format=json',
-    )
+    const response = await fetch(apiUrl)
     if (!response.ok) {
       throw new Error('Failed to fetch data')
     }

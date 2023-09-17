@@ -1,0 +1,24 @@
+'use client'
+
+import { useEffect, useState } from 'react'
+
+type Props = {
+  value: string
+  delay?: number
+}
+
+export const useDebouncedKeyword = ({ value, delay = 500 }: Props) => {
+  const [debouncedValue, setDebouncedValue] = useState<string>(value ?? '')
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedValue(value)
+    }, delay)
+
+    return () => {
+      clearTimeout(timer)
+    }
+  }, [value, delay])
+
+  return debouncedValue
+}

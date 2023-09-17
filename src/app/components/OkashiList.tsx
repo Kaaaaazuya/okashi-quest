@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import Image from 'next/image'
 import { useOkashiList } from '../hooks/useOkashiList'
 import { OkashiType } from '../types/Okashi'
 
@@ -14,7 +15,7 @@ export const OkashiList: React.FC = () => {
     <div>
       {data?.map((okashi: OkashiType) => (
         <div key={okashi.id}>
-          <img src={okashi.image} alt={okashi.name} />
+          <Image src={okashi.image} alt={okashi.name} width={100} height={100} />
           <h2>{okashi.name}</h2>
           <p>{okashi.maker}</p>
           <p>{okashi.price}円</p>
