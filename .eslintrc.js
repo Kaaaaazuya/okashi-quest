@@ -4,6 +4,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'prettier',
+    'next/core-web-vitals',
   ],
   settings: {
     react: {
@@ -25,7 +26,6 @@ module.exports = {
     'react/prop-types': 'error',
     'react/require-default-props': 'error',
     'react/no-array-index-key': 'error',
-    'react/react-in-jsx-scope': 'error',
     'react/jsx-uses-react': 'error',
     'react/display-name': 'error',
     'react/no-children-prop': 'error',
